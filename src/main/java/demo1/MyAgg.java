@@ -23,7 +23,7 @@ public class MyAgg implements AggregateFunction<Tuple2<String,Long>, Tuple2<Stri
     // 返回最终结果
     @Override
     public Tuple2<String, Integer> getResult(Tuple2<String, Integer> accumulator) {
-        System.out.println(accumulator);
+        // System.out.println(accumulator);
         return accumulator;
     }
 

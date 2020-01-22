@@ -57,6 +57,9 @@ public class MyStreaming {
       }
     });
 
+    // 开启checkpoint, 2秒1次
+    // env.enableCheckpointing(2000);
+
     // 提交
     env.execute("demo1");
   }
