@@ -11,11 +11,13 @@ public class MyAssigner implements AssignerWithPunctuatedWatermarks<Tuple2<Strin
     @Nullable
     @Override
     public Watermark checkAndGetNextWatermark(Tuple2<String, Long> lastElement, long extractedTimestamp) {
-        return new Watermark(extractedTimestamp - 2);   // 基于该日志时间倒退2秒作为watermark
+        // System.out.println(extractedTimestamp);
+        return new Watermark(extractedTimestamp - 2000);   // 基于该日志时间倒退2秒作为watermark
     }
 
     @Override
     public long extractTimestamp(Tuple2<String, Long> element, long previousElementTimestamp) {
+        // System.out.println(element);
         return element.f1;  // 日志时间作为event time
     }
 }

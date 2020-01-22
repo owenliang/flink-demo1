@@ -22,7 +22,7 @@ public class MySource implements SourceFunction<String> {
             try {
                 // 生成随机a~d的用户名
                 char username = 'a';
-                username = (char) (username + new Random().nextInt(4));
+                username = (char) (username + new Random().nextInt(26));
 
                 // 获取当前时间
                 Date now = new Date( );
@@ -34,6 +34,7 @@ public class MySource implements SourceFunction<String> {
 
                 // 吐出去
                 ctx.collect(log);
+                // System.out.println(log);
 
                 // 休眠10毫秒
                 Thread.sleep(10);

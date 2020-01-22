@@ -19,7 +19,7 @@ public class MyMapper implements FlatMapFunction<String, Tuple2<String, Long>> {
         // 解析时间为unix时间戳
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = dateFormat.parse(time);
-        Long ts = date.getTime() / 1000;    // 毫秒转秒
+        Long ts = date.getTime();    // flink的时间都是毫秒
 
         // 提交tuple
         out.collect(new Tuple2<>(username, ts));

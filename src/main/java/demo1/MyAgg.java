@@ -16,12 +16,14 @@ public class MyAgg implements AggregateFunction<Tuple2<String,Long>, Tuple2<Stri
         // 迭代一条记录
         accumulator.f0 = value.f0; // 设置username
         accumulator.f1 += 1; //  累计访问次数
-        return null;
+        // System.out.println(accumulator);
+        return accumulator;
     }
 
     // 返回最终结果
     @Override
     public Tuple2<String, Integer> getResult(Tuple2<String, Integer> accumulator) {
+        System.out.println(accumulator);
         return accumulator;
     }
 
